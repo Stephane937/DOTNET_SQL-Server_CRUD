@@ -1,0 +1,40 @@
+﻿@page
+@model MyWebApplication.Pages.Velos.IndexModel
+@{
+}
+<br>
+<h2> List of velos stations</h2>
+<a class='btn btn-primary btn-sm' href='Velos/Create'>New Cycle Station</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Station</th>
+            <th>Nombre de bornette libres</th>
+            <th>Nombre de velos disponibles</th>
+            <th>Nombre de velos automatiques</th>
+            <th>Nombre de velos manuelles</th>
+            <th>Borne de paiement</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        @foreach (var item in Model.listVelos)
+        {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.station</td>
+            <td>@item.nbreBornettesLibres</td>
+            <td>@item.velosDispo</td>
+            <td>@item.veloElectriques</td>
+            <td>@item.veloManuelle</td>
+            <td>@item.bornePaiement</td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="/Velos/Edit?id=@item.id">Edit</a>
+                <a class="btn btn-danger btn-sm" href="/Velos/Delete?id=@item.id">Delete</a>
+            </td>
+        </tr>
+        }
+     </tbody>
+</table>
